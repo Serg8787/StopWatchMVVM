@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.example.stopwatchmvvm.MainViewModel" />
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <Chronometer
+            android:id="@+id/chronometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:format="H:MM:SS"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btStart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="START"
+            android:onClick="@{()-> viewModel.start()}"
+            android:textSize="30sp"
+            android:padding="5dp"
+            app:layout_constraintEnd_toEndOf="@+id/chronometer"
+            app:layout_constraintStart_toStartOf="@+id/chronometer"
+            app:layout_constraintTop_toBottomOf="@+id/chronometer" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="STOP"
+            android:onClick="@{()-> viewModel.stop()}"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="@+id/chronometer"
+            app:layout_constraintStart_toStartOf="@+id/chronometer"
+            app:layout_constraintTop_toBottomOf="@+id/btStart" />
+
+        <Button
+            android:id="@+id/btReset"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="RESET"
+            android:onClick="@{()-> viewModel.reset()}"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="@+id/button"
+            app:layout_constraintStart_toStartOf="@+id/button"
+            app:layout_constraintTop_toBottomOf="@+id/button" />
+
+        <TextView
+            android:id="@+id/tvText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fsadsdfsdfsdf"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="@+id/btReset"
+            app:layout_constraintTop_toBottomOf="@+id/btReset" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</layout>
