@@ -12,28 +12,21 @@ class MainViewModel : ViewModel() {
     var count = 0
     val timer = Timer()
 
-
-
     val strMutableLiveData = MutableLiveData<String>()
 
-
-
     fun start() {
-
         val task = object : TimerTask() {
             override fun run() {
-                strMutableLiveData.postValue("S{this}+${count}")
+                strMutableLiveData.postValue("00:${count}")
                 count++
             }
         }
         timer.scheduleAtFixedRate(task, 0, 1000)
-
-
-
     }
 
     fun stop() {
-        strMutableLiveData.value = "Stop"
+        timer.cancel()
+
     }
 
     fun reset() {
