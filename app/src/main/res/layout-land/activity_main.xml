@@ -2,24 +2,24 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/chtTv"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
 
         <Chronometer
             android:id="@+id/chronometer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:gravity="center"
             android:padding="5dp"
             android:textSize="40sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.465"
+            app:layout_constraintHorizontal_bias="0.137"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.086" />
+            app:layout_constraintVertical_bias="0.117" />
 
         <Button
             android:id="@+id/btStart"
@@ -28,17 +28,19 @@
             android:padding="5dp"
             android:text="START"
             android:textSize="30sp"
-            app:layout_constraintEnd_toEndOf="@+id/chronometer"
-            app:layout_constraintStart_toStartOf="@+id/chronometer"
-            app:layout_constraintTop_toBottomOf="@+id/chronometer" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/chronometer"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btStop"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
             android:text="STOP"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="@+id/chronometer"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/chronometer"
             app:layout_constraintTop_toBottomOf="@+id/btStart" />
 
@@ -60,20 +62,10 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.472"
+            app:layout_constraintHorizontal_bias="0.65"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btReset"
+            app:layout_constraintTop_toBottomOf="@+id/btStart"
             app:layout_constraintVertical_bias="0.0" />
-
-        <TextView
-            android:id="@+id/tvCht"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textSize="34sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

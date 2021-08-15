@@ -2,24 +2,47 @@ package com.example.stopwatchmvvm
 
 import android.os.SystemClock
 import android.widget.Chronometer
-import androidx.databinding.ObservableField
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import java.text.SimpleDateFormat
 import java.util.*
 
-class MainViewModel {
+class MainViewModel : ViewModel() {
 
-    private lateinit var chronometer: Chronometer
-  
+    var count = 0
+    val timer = Timer()
 
 
-    fun start(){
-        chronometer.base = SystemClock.elapsedRealtime()
-        chronometer.start()
+
+    val strMutableLiveData = MutableLiveData<String>()
+
+
+
+    fun start() {
+
+        val task = object : TimerTask() {
+            override fun run() {
+                strMutableLiveData.postValue("S{this}+${count}")
+                count++
+            }
+        }
+        timer.scheduleAtFixedRate(task, 0, 1000)
+
+
+
     }
 
-    fun stop(){
-        chronometer.stop()
+    fun stop() {
+        strMutableLiveData.value = "Stop"
     }
-    fun reset(){
-        chronometer.base = SystemClock.elapsedRealtime()
+
+    fun reset() {
+        strMutableLiveData.value = "reset"
     }
+
+
+//    chronometer.base = SystemClock.elapsedRealtime()
+//    chronometer.start()
+
+
 }
