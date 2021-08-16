@@ -17,7 +17,11 @@ class MainViewModel : ViewModel() {
     fun start() {
         val task = object : TimerTask() {
             override fun run() {
-                strMutableLiveData.postValue("00:${count}")
+                if(count<10){
+                    strMutableLiveData.postValue("00:0${count}")
+                } else {
+                    strMutableLiveData.postValue("00:${count}")
+                }
                 count++
             }
         }
@@ -30,12 +34,9 @@ class MainViewModel : ViewModel() {
     }
 
     fun reset() {
-        strMutableLiveData.value = "reset"
+        timer.cancel()
+        strMutableLiveData.postValue("00:00")
+
     }
-
-
-//    chronometer.base = SystemClock.elapsedRealtime()
-//    chronometer.start()
-
 
 }
