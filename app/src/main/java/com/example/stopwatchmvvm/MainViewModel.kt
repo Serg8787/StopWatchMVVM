@@ -1,42 +1,45 @@
 package com.example.stopwatchmvvm
 
+import android.os.CountDownTimer
 import android.os.SystemClock
 import android.widget.Chronometer
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.concurrent.timerTask
 
 class MainViewModel : ViewModel() {
 
-    var count = 0
-    val timer = Timer()
 
+    var timer: CountDownTimer? = null
     val strMutableLiveData = MutableLiveData<String>()
 
-    fun start() {
-        val task = object : TimerTask() {
-            override fun run() {
-                if(count<10){
-                    strMutableLiveData.postValue("00:0${count}")
-                } else {
-                    strMutableLiveData.postValue("00:${count}")
-                }
-                count++
+    init {
+        timer = object : CountDownTimer(30000, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                val maxCounter: Long = 30000
+                val diff: Long = maxCounter - millisUntilFinished
+                strMutableLiveData.postValue("${diff / 1000}")
+            }
+            override fun onFinish() {
             }
         }
-        timer.scheduleAtFixedRate(task, 0, 1000)
     }
-
-    fun stop() {
-        timer.cancel()
-
+    fun start(){
+        timer?.start()
     }
-
-    fun reset() {
-        timer.cancel()
-        strMutableLiveData.postValue("00:00")
+    fun stop(){
+        timer?.cancel()
 
     }
+    fun reset(){
+        timer?.cancel()
+        strMutableLiveData.postValue("0")
+    }
 
+    override fun onCleared() {
+        super.onCleared()
+        timer?.cancel()
+    }
 }
