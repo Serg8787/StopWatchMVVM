@@ -14,6 +14,7 @@ class MainViewModel : ViewModel() {
 
     var timer: CountDownTimer? = null
     val strMutableLiveData = MutableLiveData<String>()
+    val isRunning:Boolean = true
 
     init {
         timer = object : CountDownTimer(30000, 1000) {

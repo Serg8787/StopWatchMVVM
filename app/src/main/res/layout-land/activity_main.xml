@@ -6,66 +6,53 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-        <Chronometer
-            android:id="@+id/chronometer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:gravity="center"
-            android:padding="5dp"
-            android:textSize="40sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.137"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.117" />
-
         <Button
             android:id="@+id/btStart"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="220dp"
+            android:layout_marginEnd="576dp"
             android:padding="5dp"
-            android:text="START"
+            android:text="@string/start"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/chronometer"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btStop"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:text="STOP"
+            android:layout_marginStart="104dp"
+            android:text="@string/stop"
             android:textSize="30sp"
-            app:layout_constraintEnd_toEndOf="@+id/chronometer"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/chronometer"
-            app:layout_constraintTop_toBottomOf="@+id/btStart" />
+            app:layout_constraintBottom_toBottomOf="@+id/btStart"
+            app:layout_constraintStart_toEndOf="@+id/btStart"
+            app:layout_constraintTop_toTopOf="@+id/btStart"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/btReset"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="RESET"
+            android:layout_marginEnd="144dp"
+            android:text="@string/reset"
             android:textSize="30sp"
-            app:layout_constraintEnd_toEndOf="@+id/btStop"
-            app:layout_constraintStart_toStartOf="@+id/btStop"
-            app:layout_constraintTop_toBottomOf="@+id/btStop" />
+            app:layout_constraintBottom_toBottomOf="@+id/btStop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btStop"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/tvText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="555"
+            android:text="@string/p"
             android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/btStop"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.65"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btStart"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.218" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
